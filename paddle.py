@@ -12,10 +12,12 @@ class Paddle(Turtle):
         self.paddle_position = position
 
     def go_up(self):
+        """controls the paddles upward movements"""
         new_y = self.ycor() + 20
         self.goto(self.xcor(), new_y)
 
     def go_down(self):
+        """controls the paddles downward movements"""
         new_y = self.ycor() - 20
         self.goto(self.xcor(), new_y)
 

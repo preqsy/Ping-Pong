@@ -33,21 +33,26 @@ while game_on:
     #     print("stop")
     #     game_on = False
     ball.move_ball()
-
+    # Detects when the ball hits the top 
     if ball.ycor() > 280 or ball.ycor() < -280:
-
         ball.bounce_y()
-
+    # Detects when the ball hits the paddles
     if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
-
-    if ball.xcor() > 380:
+    #Detects when the ball passes and when the right user loses
+    if ball.xcor() > 400:
         score.l_point()
         ball.reset_ball()
-
-    if ball.xcor() < -380:
+        if score.l_score == 5:
+            score.game_over()
+            game_on = False
+    #Detects when the ball passes and when the left user loses
+    if ball.xcor() < -410:
         score.r_point()
         ball.reset_ball()
+        if score.r_score == 5:
+            score.game_over()
+            game_on = False
 
 
 screen.exitonclick()
